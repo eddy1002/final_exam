@@ -67,5 +67,14 @@ public class MyBaseAdapter extends BaseAdapter implements AdapterView.OnItemClic
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // need something here
+//        View view;
+//        if (convertView == null) {
+//            LayoutInflater vi = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//            vi.inflate(R.layout.list_view_item_layout, parent);
+//            view = vi.createView("a", "A", this);
+//        } else {
+//            view = convertView;
+//        }
+        return convertView;
     }
 }

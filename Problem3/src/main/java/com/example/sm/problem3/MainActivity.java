@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
         for(CustomerThread ct : list){
 
-            try {
-                // need something here
-            } catch (InterruptedException e) { }
+//            try {
+//                list.add(ct);
+//            } catch (InterruptedException e) { }
         }
 
         manager.sort();
@@ -51,7 +51,9 @@ class CustomerThread extends Thread{
     CustomerThread(Customer customer){
         this.customer = customer;
     }
-    // need something here
+    public void run(){
+
+    }
 }
 
 abstract class Person{
@@ -71,6 +73,13 @@ class Customer extends Person{
     }
 
     // need something here
+    public void work(){
+        spent_money = (int) Math.round(Math.random() * 999);
+        money -= spent_money;
+    }
+    public int getMoney(){
+        return money;
+    }
 }
 
 
@@ -83,7 +92,15 @@ class Manager extends Person{
 
     void sort(){ // 직접 소팅 알고리즘을 이용하여 코딩해야함. 자바 기본 정렬 메소드 이용시 감
 
-        // need something here
+       for (int i = 0; i < list.size(); i++){
+           for (int j = i; j < list.size(); j++){
+               if (list.get(i).getMoney() < list.get(j).getMoney()){
+                   Customer temp = list.get(i);
+                   list.set(i, list.get(j));
+                   list.set(j, temp);
+               }
+           }
+       }
 
     }
 
